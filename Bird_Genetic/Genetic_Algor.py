@@ -9,7 +9,7 @@ class Genetic_Algor:
 	def __init__(self):
 		''' gets the bird objects and get the fitness scores and breed'''
 		# for testing for a set of random seed
-		np.random.seed(3)
+		#np.random.seed(9)
 		# neurons at each layer of the neural network for each bird
 		self.neurons = [2,10,5,1]
 		# gets all the birds from the file and create them
@@ -36,7 +36,7 @@ class Genetic_Algor:
 		for x in range(3):
 			chance = np.random.randint(100)
 			# .21 chance to mutate a layer
-			if(chance <= 20):
+			if(chance <= 10):
 				new_weights[x] = 2*np.random.random((self.neurons[x], 
 				self.neurons[x+1]))- 1
 		return new_weights

@@ -48,7 +48,7 @@ class Bird:
 		if(self.alive):
 			self.map.screen.blit(self.bird_type,(
 				self.x_pos,self.curr_pos))
-			self.curr_pos+= 4.66 + self.gravity
+			self.curr_pos+= 5.22 + self.gravity
 			self.gravity += .01
 			self.bird_type = self.bird_down
 			self.score+= 1
@@ -67,18 +67,18 @@ class Bird:
 		
 		# get the rect of the first set of pipe and position
 		upRect1 = pygame.Rect(self.map.wall_1,
-			360 + self.map.gap + self.map.offset_1+10,
+			360 + self.map.gap + self.map.offset_1+5,
             wall[0], wall[1])
 		downRect1 = pygame.Rect(self.map.wall_1,
-            0 - self.map.gap + self.map.offset_1-10,
+            0 - self.map.gap + self.map.offset_1-5,
             wall[0]-5 ,wall[1])
 		# get the rect of the second set of pipe and position
 		upRect2 = pygame.Rect(self.map.wall_2,
-			360 + self.map.gap + self.map.offset_2+10,
+			360 + self.map.gap + self.map.offset_2+5,
             wall[0], wall[1])
 
 		downRect2 = pygame.Rect(self.map.wall_2,
-            0 - self.map.gap + self.map.offset_2-10,
+            0 - self.map.gap + self.map.offset_2-5,
             wall[0] ,wall[1])
 
 		# check if the position of the bird hits the roof or the floor
@@ -126,7 +126,7 @@ class Bird:
 			action = self.action()
 			#print(self.name,str(action))
 			if(action >= .50 ):
-				self.curr_pos-= 58
+				self.curr_pos-= 62.33
 				self.bird_type = self.bird_up
 				self.gravity = 0
 				

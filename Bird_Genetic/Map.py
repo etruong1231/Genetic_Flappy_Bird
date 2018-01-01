@@ -20,7 +20,7 @@ class Map:
 		self.bgRect = self.bg.get_rect()
 		# set up the pygame window to be the same size as the background
 		size = width, height = self.bg.get_size() 
-		self.screen = pygame.display.set_mode((size))
+		self.screen = pygame.display.set_mode((size[0]+200,size[1]))
 
 		# set up the images for the pipes and floor
 		self.wallUp = pygame.image.load("resources/background/bottom_pipe.gif")
@@ -42,7 +42,6 @@ class Map:
 	def show_display(self):
 		# display the images onto the pygame screen
 		self.screen.blit(self.bg, (0,0))
-		self.screen.blit(self.generation, (25, 25))
 		self.screen.blit(self.wallUp,
 			(self.wall_1, 360+self.gap+self.offset_1))
 		self.screen.blit(self.wallDown,
@@ -53,6 +52,8 @@ class Map:
 			(self.wall_2, 0-self.gap+self.offset_2))
 		self.screen.blit(self.floor,
 			(0, 900))
+		self.screen.blit(self.generation, (25, 25))
+
 
 
 
@@ -71,9 +72,9 @@ class Map:
 
 	def closest_hor_wall(self):
 		# checks for the closest wall and gets its position
-		if(self.wall_1 <= -30 and self.wall_2 > self.wall_1):
+		if(self.wall_1 <= -40 and self.wall_2 > self.wall_1):
 			return self.wall_2+90
-		elif(self.wall_2 <= -30 and self.wall_1 > self.wall_2):
+		elif(self.wall_2 <= -40 and self.wall_1 > self.wall_2):
 			return self.wall_1+90
 		elif(self.wall_1 < self.wall_2):
 			return self.wall_1+90
