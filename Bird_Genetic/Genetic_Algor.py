@@ -35,7 +35,7 @@ class Genetic_Algor:
 		# give each layer of the neural network a chance to mutate
 		for x in range(3):
 			chance = np.random.randint(100)
-			# .21 chance to mutate a layer
+			# .11 chance to mutate a layer
 			if(chance <= 10):
 				new_weights[x] = 2*np.random.random((self.neurons[x], 
 				self.neurons[x+1]))- 1
@@ -57,7 +57,7 @@ class Genetic_Algor:
 		# sort the fitness score of the birds
 		fitness_scores = [(k,v) for (k,v) in sorted(random_list, key = lambda (k,v): v.fitness_score(), reverse= True)]
 		# gets the top 3 birds 
-		best_birds = fitness_scores[:4]
+		best_birds = fitness_scores[:3]
 		# creates a new population with the top 3 birds
 		new_birds = {}
 		

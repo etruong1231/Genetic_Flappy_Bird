@@ -35,8 +35,9 @@ class Simulation:
 	def check_all_bird_alive(self):
 		'''check if all birds are alive or not'''
 		for birds in self.birds.values():
-			if(birds.fitness_score() >= 3000):
-				return False
+			if(birds.fitness_score() >= 8000):
+				self.running = False
+				break
 			if (birds.alive == True):
 				return True
 		return False
@@ -45,6 +46,7 @@ class Simulation:
 		# the handler that runs the simulation
 		while(True):
 			self.run()
+			break
 			
 			
 
@@ -53,9 +55,9 @@ class Simulation:
 		game_clock = pygame.time.Clock()
 		# set a custom event that happens every 120ms for the bird to flap or not
 		pygame.time.set_timer(pygame.USEREVENT+1, 120)
-		running = True
+		self.running = True
 		try:
-		    while running:
+		    while self.running:
 		    	# set the fps of the simulation
 		    	game_clock.tick(60)
 		    	# the event that could happen with pygame

@@ -72,9 +72,9 @@ class Map:
 
 	def closest_hor_wall(self):
 		# checks for the closest wall and gets its position
-		if(self.wall_1 <= -40 and self.wall_2 > self.wall_1):
+		if(self.wall_1 <= -45 and self.wall_2 > self.wall_1):
 			return self.wall_2+90
-		elif(self.wall_2 <= -40 and self.wall_1 > self.wall_2):
+		elif(self.wall_2 <= -45 and self.wall_1 > self.wall_2):
 			return self.wall_1+90
 		elif(self.wall_1 < self.wall_2):
 			return self.wall_1+90
