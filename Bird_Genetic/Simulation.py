@@ -35,9 +35,8 @@ class Simulation:
 	def check_all_bird_alive(self):
 		'''check if all birds are alive or not'''
 		for birds in self.birds.values():
-			if(birds.fitness_score() >= 8000):
-				self.running = False
-				break
+			if(birds.fitness_score() >= 3000):
+				return False
 			if (birds.alive == True):
 				return True
 		return False
@@ -64,7 +63,7 @@ class Simulation:
 		        for event in pygame.event.get():
 		        	# in case if user quit the simulation
 		            if event.type == pygame.QUIT:
-		                running = False
+		                self.running = False
 		            # does the custom action for the bird
 		            elif event.type == pygame.USEREVENT+1:
 		            	for birds in self.birds.values():
@@ -89,6 +88,8 @@ class Simulation:
           			self.map = Map(self.generation)
           			self.birds = self.gene_alg.breed(self.map, self.birds)
           			game_clock = pygame.time.Clock()
+          		if(self.generation >= 300):
+          			self.running = False
           			
 		    pygame.quit()
 		    quit()
