@@ -82,7 +82,7 @@ class Bird:
             wall[0] ,wall[1])
 
 		# check if the position of the bird hits the roof or the floor
-		if(bird_rect[2] >= 900 or bird_rect[2] <= 0):
+		if(not bird_rect[1] <= 900 or not bird_rect[1] >= 0):
 			self.alive = False
 
 		# checks the bird collides with any of the pipes
